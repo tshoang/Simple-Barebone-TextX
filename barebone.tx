@@ -1,0 +1,28 @@
+Program:
+	statements += Statement+;
+	
+Statement:
+	Clear | Increment | Decrement | While
+;
+
+Clear:
+	'clear' name=ID ';'
+;
+
+Increment:
+	'incr' name=ID ';'
+;
+
+Decrement:
+	'decr' name=ID ';'
+;
+
+While:
+	'while' name=ID 'not' '0' 'do' ';'
+		statements += Statement+
+	'end' ';' 
+;
+
+Comment:
+	/\/\/.*$/ | /\/\*.*\*\//
+;
